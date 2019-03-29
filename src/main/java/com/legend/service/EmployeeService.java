@@ -30,7 +30,8 @@ public class EmployeeService{
      * @param employee
      */
     public void saveEmp(Employee employee) {
-        employeeMapper.insertSelective(employee);
+        int a = employeeMapper.insertSelective(employee);
+        System.out.println("a"+a);
     }
 
     /**
