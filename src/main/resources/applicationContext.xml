@@ -63,6 +63,12 @@
     <!--开启基于注解的事务，使用xml配置形式的事务（必要主要的都是使用配置式）  -->
     <aop:config>
         <!-- 切入点表达式 -->
+        <!--
+            第一个 * 是代表访问控制符
+            第二部分是  当前包下的所有类的所有方法
+                ..表示如果service包下面还有包也会扫描
+                括号里面的 .. 表示参数任意多
+        -->
         <aop:pointcut expression="execution(* com.legend.service..*(..))" id="txPoint"/>
         <!-- 配置事务增强 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"/>

@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 处理员工的CRUD请求
+ *
  * @author Create By legend
  * @date 2019/3/27 20:04
  */
@@ -33,18 +36,49 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
 
+
     /**
-     *
-     * @param id
+     *  单个批量删除二合一  (修改)
+     * @param ids
      * @return
      */
     @ResponseBody
+    @RequestMapping(value = "/emp/{ids}",method = RequestMethod.DELETE)
+    public Message deleteEmpById(@PathVariable("ids") String ids){
+       if (ids.contains("-")){
+           List<Integer> del_ids = new ArrayList<>();
+           //批量删除
+           String[] str_id = ids.split("-");
+
+           //组装List集合的ids数据
+            for (int i = 0; i < str_id.length; i++) {
+               del_ids.add(Integer.parseInt(str_id[i]));
+           }
+           //批量删除
+           employeeService.deleteBatch(del_ids);
+
+       }else{
+           //单个删除员工
+           Integer id = Integer.parseInt(ids);
+           employeeService.deleteEmp(id);
+           return Message.success();
+       }
+       return null;
+    }
+
+
+    /**
+     *  单个删除
+     * @param id
+     * @return
+     */
+    /*@ResponseBody
     @RequestMapping(value = "/emp/{id}",method = RequestMethod.DELETE)
     public Message deleteEmpById(@PathVariable("id") Integer id){
         //删除员工
         employeeService.deleteEmp(id);
         return Message.success();
-    }
+    }*/
 
 
     /**
@@ -235,7 +269,6 @@ public class EmployeeController {
         //引入pageHelper 分页插件
         //在查询之前只需要调用,传入页码,以及每页大小
         PageHelper.startPage(pn,5);
-
         List<Employee> emps = employeeService.getAll();
 
         //PageInfo 包装查询的所有数据,只需要将pageInfo交给页面

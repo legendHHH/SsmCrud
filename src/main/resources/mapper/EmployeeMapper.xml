@@ -83,6 +83,8 @@
   <sql id="Base_Column_List">
     emp_id, emp_name, gender, email, d_id
   </sql>
+
+  <!--带了部门的列选项-->
   <sql id="WithDept_Column_List">
   	e.emp_id, e.emp_name, e.gender, e.email, e.d_id,d.dept_id,d.dept_name
   </sql>

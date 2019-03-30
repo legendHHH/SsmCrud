@@ -39,6 +39,9 @@ public class MapperTest {
     EmployeeMapper employeeMapper;
 
 
+    /**
+     * 批量sqlSession
+     */
     @Autowired
     SqlSession sqlSession;
 

@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
+   <!--引入需要的jar包  下面的是maven仓库地址-->
   <dependencies>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 

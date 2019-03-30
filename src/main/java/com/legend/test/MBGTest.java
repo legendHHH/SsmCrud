@@ -9,6 +9,7 @@ import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
 /**
+ * 逆向工程生成Java Bean类和对应的Mapper类
  * @author Create By legend
  * @date 2019/3/27 21:07
  */
