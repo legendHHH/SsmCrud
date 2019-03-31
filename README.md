@@ -996,7 +996,7 @@ $("#empName_add_input").change(function () {
 使用@PathVariable时，URL是这样的：http:/localhost:8080/path/参数值
 ```
 
-## JSON字符串解析
+## JSON字符串解析(还能使用fastjson)
 ### 使用
 ```
 引入Jar包(maven项目)
