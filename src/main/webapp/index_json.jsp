@@ -743,7 +743,7 @@
         }
 
     });
-    
+
     //完成全选/全不选
     $("#check_all").click(function () {
         //attr获取checked是undefined,这些是dom原生的属性
