@@ -1227,7 +1227,3 @@ log4j.appender.File.layout.ConversionPattern =[%p] [%d{yyyy-MM-dd HH\:mm\:ss}][%
 在Tomcat的VM Option空白处添加下面的参数设置即可
     -Xms258m -Xmx1024m -XX:PermSize=128m -XX:MaxPermSize=256m
 ````
-
-## 知识点回顾
-![](https://img2018.cnblogs.com/blog/1231979/201903/1231979-20190330112647828-1919968568.png)
-       
