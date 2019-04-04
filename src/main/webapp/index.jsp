@@ -23,6 +23,7 @@
 <a href="${pageContext.request.contextPath}/emp">获取1个EmpJson数据</a><br><br>
 
 <a href="${pageContext.request.contextPath}/index_json.jsp">Json数据页面</a><br><br>
+<a href="${pageContext.request.contextPath}/index_json_KendoUI.jsp">KendoUIJson数据页面</a><br><br>
 
 
 </body>
