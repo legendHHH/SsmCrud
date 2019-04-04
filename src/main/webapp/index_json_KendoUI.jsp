@@ -206,6 +206,7 @@
             <div class="row">
                 <!--分页文字-->
                 <div class="col-md-6" id="page_info_area">
+                    <span data-bind="text:pages"></span>
                 </div>
 
                 <!--分页条信息-->
@@ -345,9 +346,18 @@
         $("#page_info_area").empty();
 
         //拼接参数
-        $("#page_info_area").append("当前"+result.extend.pageInfo.pageNum+"页,总"
+        /*$("#page_info_area").append("当前"+result.extend.pageInfo.pageNum+"页,总"
             +result.extend.pageInfo.pages+"页,总"
-            +result.extend.pageInfo.total+"条记录");
+            +result.extend.pageInfo.total+"条记录");*/
+
+        //替换KendoUI
+        var pageInfoViewModal = kendo.observable({
+                pageNum:result.extend.pageInfo.pageNum,
+                pages:result.extend.pageInfo.pages,
+                total:result.extend.pageInfo.total,
+        });
+        kendo.bind($("#page_info_area"),pageInfoViewModal);
+
 
         //赋值总记录数
         totalRecord = result.extend.pageInfo.total;
@@ -878,5 +888,11 @@
         </td>
     </tr>
 </script>
+
+
+<%--显示分页信息--%>
+<%--<script id="pageInfo-template" type="text/x-kendo-template">
+
+</script>--%>
 </body>
 </html>
